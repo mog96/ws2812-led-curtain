@@ -40,8 +40,13 @@ void draw() {
   if (cam.available() == true) {
     cam.read();
   }
-  image(cam, 0, 0);
+  
+  pushMatrix();
+  scale(-1.0, 1.0);
+  image(cam,-cam.width,0);
+  popMatrix();
+  
   // The following does the same, and is faster when just drawing the image
   // without any additional resizing, transformations, or tint.
-  //set(0, 0, cam);
+  // set(0, 0, cam);
 }
